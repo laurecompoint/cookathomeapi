@@ -20,9 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::get('/favories', 'RecetteController@favorie');
     Route::get('/recettebyuser', 'RecetteController@recipecreatebyuser');
+    Route::apiResource('/recettes', 'RecetteController');
     
 });
-Route::apiResource('/recettes', 'RecetteController');
+
 
 Route::post('/register', 'AuthentificationController@register');
 Route::post('/login', 'AuthentificationController@login');
