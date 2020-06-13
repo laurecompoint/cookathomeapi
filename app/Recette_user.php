@@ -5,7 +5,7 @@ use App\Recette;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Favorie extends Model
+class Recette_user extends Model
 {
     public function recettes()
     {
@@ -16,7 +16,8 @@ class Favorie extends Model
     {
         return $this->belongsTo(User::class, 'favorie_id');
     }
-    public function postLike(){
-        return $this->belongsTo(Recette::class);
-        }
+    public function recette()
+    {
+        return $this->belongsToMany(Recette::class);
+    }
 }

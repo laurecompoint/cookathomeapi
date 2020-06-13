@@ -21,6 +21,8 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::get('/favories', 'RecetteController@favorie');
     Route::get('/recettebyuser', 'RecetteController@recipecreatebyuser');
     Route::apiResource('/recettes', 'RecetteController');
+    Route::put('/updateuser', 'AuthentificationController@updateuser');
+    Route::put('/updaterecette/{id}', 'RecetteController@update');
     
 });
 

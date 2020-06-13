@@ -1,22 +1,22 @@
 <?php
 
 namespace App;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Recette extends Model
 {
    
-    public function postLike(){
-        return $this->belongsTo(Recette::class,'recette_id');
-        }
-
-    public function user()
+    
+    
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
-    public function users() {
-    return $this->belongsTo('App\User');
+    public function recette_user()
+    {
+        return $this->belongsToMany(Recette_user::class);
     }
+   
     
 }

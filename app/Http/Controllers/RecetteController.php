@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Recette;
-use App\Favorie;
+use App\Recette_user;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,11 +19,13 @@ class RecetteController extends Controller
         return $recette->get();
     }
 
-    public function favorie(Recette $recette, Request $request)
+    public function favorie(User $user, Recette $recette, Request $request, Recette_user $recette_user)
     {
-        $recettefav = User::with('recettes')->get();
-        
-        return response()->json($recettefav);
+       
+        $recettefav = Recette::with('users')->get();
+    
+    
+      return response()->json( $recettefav );
     }
 
   
@@ -124,9 +126,39 @@ class RecetteController extends Controller
      * @param  \App\Recette  $recette
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recette $recette)
+    public function update($id, Request $request, Recette $recette)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'type' => 'required',
+            'ingredient1' => 'required',
+            'ingredient2' => 'required',
+            'ingredient3' => 'required',
+            'ingredient4' => 'required',
+            'ingredient5' => 'required',
+            'ingredient6' => 'required',
+            'preparation1' => 'required',
+            'preparation2' => 'required',
+            'preparation3' => 'required',
+            'preparation4' => 'required',
+            'preparation5' => 'required',
+            'cuisson' => 'required',
+            'nbpersonne' => 'required',
+        ]);
+        if ($validator->fails()) {
+           
+            $errors = $validator->errors();
+
+            return response('error : content required', 422);
+            
+        }
+        $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title, 'type'  =>  $recette->type = $request->type, 'ingredient1'  =>   $recette->ingredient1 = $request->ingredient1,
+        'ingredient2'  =>   $recette->ingredient2 = $request->ingredient2, 'ingredient3'  =>   $recette->ingredient3 = $request->ingredient3, 'ingredient4'  =>   $recette->ingredient4 = $request->ingredient4, 'ingredient5'  =>   $recette->ingredient5 = $request->ingredient5,
+        'ingredient6'  =>   $recette->ingredient6 = $request->ingredient6, 'preparation1'  =>    $recette->preparation1 = $request->preparation1, 'preparation2'  =>    $recette->preparation2 = $request->preparation2, 'preparation3'  =>    $recette->preparation3 = $request->preparation3,
+        'preparation4'  =>    $recette->preparation4 = $request->preparation4, 'preparation5'  =>    $recette->preparation5 = $request->preparation5, 'cuisson'  =>    $recette->cuisson = $request->cuisson, 'nbpersonne'  =>    $recette->nbpersonne = $request->nbpersonne,
+        ]);
+      
+        return response()->json(['recette-update' =>  $recetteupdate]);
     }
 
     /**

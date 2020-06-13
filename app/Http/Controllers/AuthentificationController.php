@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
@@ -64,6 +65,27 @@ class AuthentificationController extends Controller
             'authorization' => $token
         ];
         return response($response, 201);
+    }
+    public function updateuser(Request $request, User $user){
+        if(!empty($request->password)){
+            $validate = $request->validate([
+                'password' => ['required', 'string', 'min:8'],
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255'],
+                ]);
+        }
+        $validate = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if(!empty($request->password)){
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return response($user, 201);
     }
 
 }

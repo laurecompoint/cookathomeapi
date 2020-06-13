@@ -37,10 +37,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+   
     public function recettes()
     {
         
-    return $this->belongsToMany('App\Recette');
+        return $this->belongsToMany(Recette::class, 'Recette_user');
     }
+  
 }
