@@ -43,5 +43,8 @@ class User extends Authenticatable
         
         return $this->belongsToMany(Recette::class, 'Recette_user');
     }
+    public function favorie(){
+        return $this->belongsToMany('App\User', 'Recette_user', 'user_id', 'recette_id')->withTimestamps();
+    }
   
 }

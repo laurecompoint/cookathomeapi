@@ -22,11 +22,33 @@ class RecetteController extends Controller
     public function favorie(User $user, Recette $recette, Request $request, Recette_user $recette_user)
     {
        
-        $recettefav = Recette::with('users')->get();
+        $recettefav = User::with('recettes')->find(Auth::user()->id);
     
     
       return response()->json( $recettefav );
     }
+
+    public function favorierecetteadd($id, User $user, Request $request, Recette_user $recette_user)
+    {
+
+      
+        $iduser = Auth::id();
+        $me = User::find($iduser);
+        $me->favorie()->attach($id);
+
+        return response()->json(  $me );
+    }
+    public function favorierecettedelete($id, User $user, Request $request, Recette_user $recette_user)
+    {
+
+        $iduser = Auth::id();
+        $me = User::find($iduser);
+        $me->favorie()->detach($id);
+        return $me;
+       
+    }
+
+    
 
   
 
@@ -92,7 +114,7 @@ class RecetteController extends Controller
         $recette->preparation5 = $request->preparation5;
         $recette->cuisson = $request->cuisson;
         $recette->nbpersonne = $request->nbpersonne;
-        $recette->favorie_id = $request->favorie_id;
+        $recette->favorie_id = Auth::user()->id;
         $recette->save();
         return $recette;
     }

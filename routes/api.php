@@ -23,6 +23,8 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::apiResource('/recettes', 'RecetteController');
     Route::put('/updateuser', 'AuthentificationController@updateuser');
     Route::put('/updaterecette/{id}', 'RecetteController@update');
+    Route::post('/favorie-add/{id}', 'RecetteController@favorierecetteadd');
+    Route::post('/favorie-delete/{id}', 'RecetteController@favorierecettedelete');
     
 });
 
