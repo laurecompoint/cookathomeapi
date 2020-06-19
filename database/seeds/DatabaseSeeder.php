@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Recette;
-use App\Favorie;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -259,12 +259,6 @@ class DatabaseSeeder extends Seeder
             $recetteentree2->save();
 
 
-            $favorie = new Favorie();
-            $favorie->user_id = 1;
-            $favorie->recette_id = 1;
-            $favorie->save();
-
-           
 
 
 

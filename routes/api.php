@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::post('/favorie-add/{id}', 'RecetteController@favorierecetteadd');
     Route::post('/favorie-delete/{id}', 'RecetteController@favorierecettedelete');
     Route::get('/favoriebyrecette/{id}', 'RecetteController@favoriebyrecette');
+    Route::get('/commentaire/{id}', 'CommentaireController@index');
+    Route::post('/commentaire-add', 'CommentaireController@create');
     
 });
 
