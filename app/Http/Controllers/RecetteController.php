@@ -16,7 +16,7 @@ class RecetteController extends Controller
      */
     public function index(Recette $recette)
     {
-        return $recette->get();
+        return $recette->orderBy('created_at', 'desc')->get();
     }
 
     public function favorie(User $user, Recette $recette, Request $request, Recette_user $recette_user)
@@ -48,8 +48,29 @@ class RecetteController extends Controller
        
     }
 
+    public function favoriebyrecette($id, User $user, Request $request, Recette_user $recette_user)
+    {
+
+        
+
+       if(Recette_user::where('recette_id', $id )->where('user_id', '=', Auth::user()->id)->exists() ){
+       
+        $response = [
+            'favorie' =>  true,
+         
+        ];
+        return response($response, 201);
+       }else{
+        $response = [
+            'favorie' =>  false,
+         
+        ];
+        return response($response, 201);
+       }
     
 
+    
+    }
   
 
     /**
