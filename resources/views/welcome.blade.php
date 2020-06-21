@@ -20,8 +20,8 @@
                 margin: 0;
             }
             .fondimage{
-                background-image: url("images/chouquette.jpeg") ;
-                background-size: 1450px;
+                background-image: url("images/cookathome.png") ;
+                background-size: 1440px;
             }
 
             .full-height {
@@ -73,10 +73,8 @@
         <div class="flex-center position-ref full-height">
           
 
-            <div class="content ">
-                <div class="title m-b-md">
-                    Laravel Api CookAtHome
-                </div>
+            <div class="content">
+               
 
                
             </div>
