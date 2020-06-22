@@ -29,7 +29,7 @@ class CreateRecettesTable extends Migration
             $table->text('preparation4');
             $table->text('preparation5');
             $table->string('type');
-            $table->integer('favorie_id');
+            $table->integer('user_id');
             $table->integer('cuisson');
             $table->integer('nbpersonne');
             $table->timestamps();
