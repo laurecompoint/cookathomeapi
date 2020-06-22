@@ -16,7 +16,7 @@ class RecetteController extends Controller
      */
     public function index(Recette $recette)
     {
-        return $recette->orderBy('created_at', 'desc')->get();
+        return Recette::with('user')->orderBy('created_at', 'desc')->get();
     }
 
     public function favorie(User $user, Recette $recette, Request $request, Recette_user $recette_user)
