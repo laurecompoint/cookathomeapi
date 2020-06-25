@@ -26,6 +26,8 @@ class RecetteController extends Controller
     
     
       return response()->json( $recettefav );
+
+      
     }
 
     public function favorierecetteadd($id, User $user, Request $request, Recette_user $recette_user)

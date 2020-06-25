@@ -13,7 +13,6 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -22,6 +21,9 @@
             .fondimage{
                 background-image: url("images/cookathome.png") ;
                 background-size: 1440px;
+            }
+            .color{
+                color: #ffffff,
             }
 
             .full-height {
@@ -55,7 +57,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #ffffff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -75,9 +77,11 @@
 
             <div class="content">
                
-
-               
-            </div>
+            <div class="top-right links">
+                   
+                        <a href="{{ url('/prototype-cookathome') }}" class="color">Prototype</a>
+                 
+                </div>
         </div>
     </body>
 </html>
