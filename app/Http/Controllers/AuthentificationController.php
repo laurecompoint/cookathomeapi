@@ -5,6 +5,7 @@ use App\User;
 use App\Recette;
 use App\Recette_user;
 use App\Commentaire;
+use App\PersonalAccessToken;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -96,16 +97,14 @@ class AuthentificationController extends Controller
         $user = User::find(Auth::user()->id);
         $user->delete();
 
-
-       
-        if(Commentaire::where('user_id', '=', Auth::user()->id)->exists() || Recette_user::where('user_id', '=', Auth::user()->id)->exists() || Recette::where('user_id', '=', Auth::user()->id)->exists()){
+        if(Commentaire::where('user_id', '=', Auth::user()->id)->exists() || Recette_user::where('user_id', '=', Auth::user()->id)->exists() || Recette::where('user_id', '=', Auth::user()->id)->exists() || PersonalAccessToken::where('tokenable_id', '=', Auth::user()->id)->exists()){
             Commentaire::where('user_id', '=', Auth::user()->id)->delete();
             Recette_user::where('user_id', '=', Auth::user()->id)->delete();
             Recette::where('user_id', '=', Auth::user()->id)->delete();
+            PersonalAccessToken::where('tokenable_id', '=', Auth::user()->id)->delete();
             return response("delete ok", 200);
            
         }
-       
        
 
     }
