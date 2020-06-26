@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Recette;
+use App\Recette_user;
+use App\Commentaire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -89,9 +92,22 @@ class AuthentificationController extends Controller
     }
 
     public function destroy(Request $request, User $user){
+        
         $user = User::find(Auth::user()->id);
         $user->delete();
-        return $user;
+
+
+       
+        if(Commentaire::where('user_id', '=', Auth::user()->id)->exists() || Recette_user::where('user_id', '=', Auth::user()->id)->exists() || Recette::where('user_id', '=', Auth::user()->id)->exists()){
+            Commentaire::where('user_id', '=', Auth::user()->id)->delete();
+            Recette_user::where('user_id', '=', Auth::user()->id)->delete();
+            Recette::where('user_id', '=', Auth::user()->id)->delete();
+            return response("delete ok", 200);
+           
+        }
+       
+       
+
     }
 
 }
