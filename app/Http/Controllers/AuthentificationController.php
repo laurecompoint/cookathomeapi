@@ -88,5 +88,11 @@ class AuthentificationController extends Controller
         return response($user, 201);
     }
 
+    public function destroy(Request $request, User $user){
+        $user = User::find(Auth::user()->id);
+        $user->delete();
+        return $user;
+    }
+
 }
 
