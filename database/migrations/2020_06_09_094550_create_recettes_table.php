@@ -32,6 +32,7 @@ class CreateRecettesTable extends Migration
             $table->integer('user_id');
             $table->integer('cuisson');
             $table->integer('nbpersonne');
+            $table->text('materiel');
             $table->timestamps();
         });
     }

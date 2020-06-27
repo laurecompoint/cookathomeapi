@@ -112,6 +112,7 @@ class RecetteController extends Controller
             'preparation5' => 'required',
             'cuisson' => 'required',
             'nbpersonne' => 'required',
+            'materiel' => 'required',
         ]);
          
         if ($validator->fails()) {
@@ -137,7 +138,8 @@ class RecetteController extends Controller
         $recette->preparation5 = $request->preparation5;
         $recette->cuisson = $request->cuisson;
         $recette->nbpersonne = $request->nbpersonne;
-        $recette->favorie_id = Auth::user()->id;
+        $recette->materiel = $request->materiel;
+        $recette->user_id = Auth::user()->id;
         $recette->save();
         return $recette;
     }
