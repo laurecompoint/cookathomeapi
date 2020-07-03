@@ -176,7 +176,7 @@ class RecetteController extends Controller
     public function update($id, Request $request, Recette $recette)
     {
        
-        if($request->photo != '' & $request->title != '' & $request->type != '' &  $request->ingredient1 != '' &  $request->ingredient2 != '' & $request->ingredient3 != '' & $request->ingredient4 != '' & $request->ingredient5 != '' & $request->ingredient6 != '' & $request->preparation1 != '' & $request->preparation2 != '' & $request->preparation3 != ''  & $request->preparation4 != ''  & $request->preparation5 != ''){
+        if($request->photo != ''  && $request->title != '' && $request->type != '' &&  $request->ingredient1 != '' &&  $request->ingredient2 != '' && $request->ingredient3 != '' && $request->ingredient4 != '' && $request->ingredient5 != '' && $request->ingredient6 != '' && $request->preparation1 != '' && $request->preparation2 != '' && $request->preparation3 != ''  && $request->preparation4 != ''  && $request->preparation5 != ''){
             $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title, 'photo'  =>  $recette->photo = $request->photo, 'type'  =>  $recette->type = $request->type, 'ingredient1'  =>   $recette->ingredient1 = $request->ingredient1,
             'ingredient2'  =>   $recette->ingredient2 = $request->ingredient2, 'ingredient3'  =>   $recette->ingredient3 = $request->ingredient3, 'ingredient4'  =>   $recette->ingredient4 = $request->ingredient4, 'ingredient5'  =>   $recette->ingredient5 = $request->ingredient5,
             'ingredient6'  =>   $recette->ingredient6 = $request->ingredient6, 'preparation1'  =>    $recette->preparation1 = $request->preparation1, 'preparation2'  =>    $recette->preparation2 = $request->preparation2, 'preparation3'  =>    $recette->preparation3 = $request->preparation3,
@@ -184,7 +184,7 @@ class RecetteController extends Controller
             ]);
             return response()->json(['recette-update' =>  $recetteupdate]);
         }
-        if($request->title != '' &  $request->ingredient1 != '' &  $request->ingredient2 != '' & $request->ingredient3 != '' & $request->ingredient4 != '' & $request->ingredient5 != '' & $request->ingredient6 != '' & $request->preparation1 != '' & $request->preparation2 != '' & $request->preparation3 != ''  & $request->preparation4 != ''  & $request->preparation5 != ''){
+        if($request->title != '' && $request->ingredient1 != '' &&  $request->ingredient2 != '' && $request->ingredient3 != '' && $request->ingredient4 != '' & $request->ingredient5 != '' && $request->ingredient6 != '' && $request->preparation1 != '' && $request->preparation2 != '' && $request->preparation3 != ''  && $request->preparation4 != ''  && $request->preparation5 != ''){
             $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title,  'ingredient1'  =>   $recette->ingredient1 = $request->ingredient1,
             'ingredient2'  =>   $recette->ingredient2 = $request->ingredient2, 'ingredient3'  =>   $recette->ingredient3 = $request->ingredient3, 'ingredient4'  =>   $recette->ingredient4 = $request->ingredient4, 'ingredient5'  =>   $recette->ingredient5 = $request->ingredient5,
             'ingredient6'  =>   $recette->ingredient6 = $request->ingredient6, 'preparation1'  =>    $recette->preparation1 = $request->preparation1, 'preparation2'  =>    $recette->preparation2 = $request->preparation2, 'preparation3'  =>    $recette->preparation3 = $request->preparation3,
@@ -192,14 +192,12 @@ class RecetteController extends Controller
             ]);
             return response()->json(['recette-update' =>  $recetteupdate]);
         }
-        if($request->title != ''){
-            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title
-            ]);
+        if($request->title != '' && $request->type != '' && $request->photo != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title,  'photo'  =>  $recette->photo = $request->photo, 'type'  =>  $recette->type = $request->type ]);
             return response()->json(['recette-update' =>  $recetteupdate]);
         }
-        if($request->title != '' & $request->type != '' & $request->photo != ''){
-            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title,  'photo'  =>  $recette->photo = $request->photo, 'type'  =>  $recette->type = $request->type,
-            ]);
+        if($request->title != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title ]);
             return response()->json(['recette-update' =>  $recetteupdate]);
         }
        
