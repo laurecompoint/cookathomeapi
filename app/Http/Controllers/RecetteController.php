@@ -197,6 +197,11 @@ class RecetteController extends Controller
             ]);
             return response()->json(['recette-update' =>  $recetteupdate]);
         }
+        if($request->title != '' & $request->type != '' & $request->photo != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title,  'photo'  =>  $recette->photo = $request->photo, 'type'  =>  $recette->type = $request->type,
+            ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
        
       
        
