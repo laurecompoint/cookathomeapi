@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Recette;
+use App\Commentaire;
 use App\Recette_user;
 class DatabaseSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class DatabaseSeeder extends Seeder
      
             $recettes = new Recette();
             $recettes->title = "Cookies";
-            $recettes->photo = "recette1";
+            $recettes->photo = "cookie";
             $recettes->ingredient1 = "20g de chocolat";
             $recettes->ingredient2 = "125g de beurre";
             $recettes->ingredient3 = "100g de farine";
@@ -40,7 +41,7 @@ class DatabaseSeeder extends Seeder
 
             $recette = new Recette();
             $recette->title = "Marbré";
-            $recette->photo = "recette2";
+            $recette->photo = "marbre";
             $recette->ingredient1 = "80g de chocolat";
             $recette->ingredient2 = "100g de beurre";
             $recette->ingredient3 = "150 g de farine";
@@ -61,7 +62,7 @@ class DatabaseSeeder extends Seeder
 
             $recette1 = new Recette();
             $recette1->title = "Chouquette";
-            $recette1->photo = "recette3";
+            $recette1->photo = "chouquette";
             $recette1->ingredient1 = "150g de beurre";
             $recette1->ingredient2 = "Sucre en grain";
             $recette1->ingredient3 = "150g de farine";
@@ -104,7 +105,7 @@ class DatabaseSeeder extends Seeder
 
             $recettetarte2 = new Recette();
             $recettetarte2->title = "Tarte aux pommes";
-            $recettetarte2->photo = "tartepommes";
+            $recettetarte2->photo = "tartepomme";
             $recettetarte2->ingredient1 = "40 pommes environs";
             $recettetarte2->ingredient2 = "100g de sucre";
             $recettetarte2->ingredient3 = "Pâte feuilletée";
@@ -182,14 +183,14 @@ class DatabaseSeeder extends Seeder
             $recettecrepechantilly2->preparation5 = "Mettez la préparation dans un plats puis mettez le dans le four. Puis dégustez une fois près.";
             $recettecrepechantilly2->cuisson = 40;
             $recettecrepechantilly2->nbpersonne = 8;
-            $recettecrepechantilly2->user_id = 0;
+            $recettecrepechantilly2->user_id = 2;
             $recettecrepechantilly2->type = "dessert";
             $recettecrepechantilly2->materiel = "Vous aurez besoin d'un saladier, une cuillère, un plats, et une casserole.";
             $recettecrepechantilly2->save();
 
             $recettecrepechantilly1 = new Recette();
             $recettecrepechantilly1->title = "Crumble cerises";
-            $recettecrepechantilly1->photo = "crumblecerises";
+            $recettecrepechantilly1->photo = "crumble";
             $recettecrepechantilly1->ingredient1 = "100g de cerises";
             $recettecrepechantilly1->ingredient2 = "1 sachet de sucre vanillé";
             $recettecrepechantilly1->ingredient3 = "20g de beurre";
@@ -211,7 +212,7 @@ class DatabaseSeeder extends Seeder
 
             $recetteplat = new Recette();
             $recetteplat->title = "Paella";
-            $recetteplat->photo = "recetteplat1";
+            $recetteplat->photo = "paella";
             $recetteplat->ingredient1 = "Moule, crevettes, gambas, lote, calamars";
             $recetteplat->ingredient2 = "Tomate et oignon";
             $recetteplat->ingredient3 = "Riz";
@@ -274,7 +275,7 @@ class DatabaseSeeder extends Seeder
 
             $recetteplat4 = new Recette();
             $recetteplat4->title = "Betrave farcie";
-            $recetteplat4->photo = "betterave";
+            $recetteplat4->photo = "betrave";
             $recetteplat4->ingredient1 = "1 betterave";
             $recetteplat4->ingredient2 = "Maïs";
             $recetteplat4->ingredient3 = "Concombre";
@@ -338,10 +339,31 @@ class DatabaseSeeder extends Seeder
             $recetteplat6->materiel = "Vous aurez besoin d'un plat à tarte et  d'un saladier.";
             $recetteplat6->save();
 
+            $recetteplat7 = new Recette();
+            $recetteplat7->title = "Saumon-brogolie";
+            $recetteplat7->photo = "saumonbrogolie";
+            $recetteplat7->ingredient1 = "Brogolie";
+            $recetteplat7->ingredient2 = "1 pomme de terre";
+            $recetteplat7->ingredient3 = "2 patate douce";
+            $recetteplat7->ingredient4 = "50cl de lait";
+            $recetteplat7->ingredient5 = "Saumon";
+            $recetteplat7->ingredient6 = "Poivres et sel";
+            $recetteplat7->preparation1 = "Cuire le saumon dans une poele avec de l'huile d'olive.";
+            $recetteplat7->preparation2 = "Faire cuire le brocolie dans une caserole avec de l'eau pendant 10 min";
+            $recetteplat7->preparation3 = "Faire la purée en ecrassant les patates douce et la pommes de terres, puis ajouter le lait et continuer à mélanger pour que la purée soit liquide.";
+            $recetteplat7->preparation4 = "Disposer dans des assietes le brogolie, un peu de purée puis le saumon.";
+            $recetteplat7->preparation5 = "Noublier pas d'asaisonner à votre convenance avec poivre et sel. Puis déguster.";
+            $recetteplat7->cuisson = 30;
+            $recetteplat7->nbpersonne = 3;
+            $recetteplat7->user_id = 3;
+            $recetteplat7->type = "plats";
+            $recetteplat7->materiel = "Vous aurez besoin d'une poele, une caserole, une cuilère et d'un saladier.";
+            $recetteplat7->save();
+
 
             $recetteapero = new Recette();
-            $recetteapero->title = "Mini pizza";
-            $recetteapero->photo = "recetteapero1";
+            $recetteapero->title = "Pizza";
+            $recetteapero->photo = "pizza";
             $recetteapero->ingredient1 = "1 pâte à pizza";
             $recetteapero->ingredient2 = "Olives";
             $recetteapero->ingredient3 = "Jambon";
@@ -381,9 +403,31 @@ class DatabaseSeeder extends Seeder
             $recetteapero2->materiel = "Vous aurez besoin d'un couteaux et une cuillère.";
             $recetteapero2->save();
 
+            $recetteapero2 = new Recette();
+            $recetteapero2->title = "Faritas";
+            $recetteapero2->photo = "faritas";
+            $recetteapero2->ingredient1 = "5 faritas";
+            $recetteapero2->ingredient2 = "Viandes hachés";
+            $recetteapero2->ingredient3 = "Sauce tomate";
+            $recetteapero2->ingredient4 = "Haricot rouge";
+            $recetteapero2->ingredient5 = "Guacamole";
+            $recetteapero2->ingredient6 = "Cruyère";
+            $recetteapero2->preparation1 = "Faire cuire la viandes hachés dans une poiles, puis ajouter les harocots rouges.";
+            $recetteapero2->preparation2 = "Quand la viande est cuite, ajouter la sauce tomate et remuer jusqu'a ce que la sauce impregne la vidande.";
+            $recetteapero2->preparation3 = "Preparer le guacamole et le cruyère.";
+            $recetteapero2->preparation4 = "Faite chauffer les faritas aux micro onde.";
+            $recetteapero2->preparation5 = "Ajouter le mélange viande, haricots rouge et sauce tomate dans les farites, puis ajouter le guacamole puis le cruyère. Ensuite déguster pendant que c'est encore chaud.";
+            $recetteapero2->cuisson = 30;
+            $recetteapero2->nbpersonne = 5;
+            $recetteapero2->user_id = 3;
+            $recetteapero2->type = "apero";
+            $recetteapero2->materiel = "Vous aurez besoin d'une poile et une cuillère.";
+            $recetteapero2->save();
+
+
             $recetteentree = new Recette();
             $recetteentree->title = "Quiche aux thon";
-            $recetteentree->photo = "recetteentree1";
+            $recetteentree->photo = "quichethon";
             $recetteentree->ingredient1 = "2 poite de thon naturel";
             $recetteentree->ingredient2 = "Pâte brisé";
             $recetteentree->ingredient3 = "5 cuilere de moutarde";
@@ -444,6 +488,69 @@ class DatabaseSeeder extends Seeder
             $recetteentree3->materiel = "Vous aurez besoin d'un saladier, une cuillère et un couteaux.";
             $recetteentree3->save();
 
+            $recetteentree4 = new Recette();
+            $recetteentree4->title = "Tagliatelles";
+            $recetteentree4->photo = "tagliatelles";
+            $recetteentree4->ingredient1 = "100g de pâte";
+            $recetteentree4->ingredient2 = "1 saumon en papilotter";
+            $recetteentree4->ingredient3 = "1 saumon fumé";
+            $recetteentree4->ingredient4 = "30g de crème fraiche";
+            $recetteentree4->ingredient5 = "Noix de saint jacques";
+            $recetteentree4->ingredient6 = "Poivres";
+            $recetteentree4->preparation1 = "Cuire les deux saumons dans une poiles avec de l'huile d'olive.";
+            $recetteentree4->preparation2 = "Cuire les pâtes dans une casserole avec de l'eau. Une fois cuite, sortir de l'eau et esorer.";
+            $recetteentree4->preparation3 = "Mélanger les saumons avec les pâtes.";
+            $recetteentree4->preparation4 = "Puis ajouter la crème et remuer.";
+            $recetteentree4->preparation5 = "Ajouter le poivres et mélanger encore puis déguster.";
+            $recetteentree4->cuisson = 30;
+            $recetteentree4->nbpersonne = 2;
+            $recetteentree4->user_id = 2;
+            $recetteentree4->type = "entree";
+            $recetteentree4->materiel = "Vous aurez besoin d'une caserole, une poêle et une fourgette.";
+            $recetteentree4->save();
+
+            $recettdejeuner = new Recette();
+            $recettdejeuner->title = "Pancake";
+            $recettdejeuner->photo = "pancake";
+            $recettdejeuner->ingredient1 = "100g de farine";
+            $recettdejeuner->ingredient2 = "2 sachets de sucre vanillé et 1 sachet de levure";
+            $recettdejeuner->ingredient3 = "3 oeufs";
+            $recettdejeuner->ingredient4 = "100g de sucre";
+            $recettdejeuner->ingredient5 = "50g de beurre";
+            $recettdejeuner->ingredient6 = "40cl de lait";
+            $recettdejeuner->preparation1 = "Mélanger les oeufs avec la levure et le sucre vanillé.";
+            $recettdejeuner->preparation2 = "Ajouter le sucre en plus si vous voulez en rajoutez.";
+            $recettdejeuner->preparation3 = "Ajoutez à cette préparation la farine puis le beurre.";
+            $recettdejeuner->preparation4 = "Ajoutez le lait, et remuer la préparation.";
+            $recettdejeuner->preparation5 = "Sortez la poêle à crèpe puis disposer d'une noix de beurre sur la poêle, puis ajouter une cuilère de pâte, retourner cette pâte une fois que la premier face est cuite. Quand c'est bien cuit, déguster.";
+            $recettdejeuner->cuisson = 10;
+            $recettdejeuner->nbpersonne = 4;
+            $recettdejeuner->user_id = 2;
+            $recettdejeuner->type = "dejeuner";
+            $recettdejeuner->materiel = "Vous aurez besoin d'une poele à crèpe, un saladier et une cuilère.";
+            $recettdejeuner->save();
+
+            $recettdejeuner2 = new Recette();
+            $recettdejeuner2->title = "Brioche";
+            $recettdejeuner2->photo = "brioche";
+            $recettdejeuner2->ingredient1 = "500g de farine";
+            $recettdejeuner2->ingredient2 = "1 sachet de levure";
+            $recettdejeuner2->ingredient3 = "2 oeufs";
+            $recettdejeuner2->ingredient4 = "80g de sucre";
+            $recettdejeuner2->ingredient5 = "80g de beurre";
+            $recettdejeuner2->ingredient6 = "200ml de lait";
+            $recettdejeuner2->preparation1 = "À la main ou au robot : Dans un saladier, battez les œufs, le lait, le sucre et le sel puis versez la farine et enfin la levure. Mélangez bien au robot pétrisseur pendant 7 minutes à vitesse lente (vitesse 1) + 5 à 7 minutes à vitesse 2 (ou le contraire). Si vous pétrissez à la main, comptez une vingtaine de minutes de pétrissage actif";
+            $recettdejeuner2->preparation2 = "Incorporez ensuite le beurre mou coupé en morceaux et pétrissez lentement (environ 7 minutes au robot pétrisseur) jusqu'à obtention d'une pâte souple et homogène. Arrêtez de pétrir dès que le beurre est bien incorporé.";
+            $recettdejeuner2->preparation3 = "La pâte doit être très lisse, souple et élastique.";
+            $recettdejeuner2->preparation4 = "Laissez lever à l'abri des courants d'airs pendant 1h30 à 2 heures minimum en pensant à dégazer la pâte une fois durant la levée.";
+            $recettdejeuner2->preparation5 = "Quand la levée est terminée, rompez la pâte avec le poing pour la dégazer (chasser l’air), étalez-la puis pliez-la puis façonnez votre ou vos brioches (ou pains au lait). Normalement cette quantité est pour 2 brioches ou environ 16 pains au lait. Laissez pousser à nouveau à couvert dans un endroit tiède, pendant 45 minutes à 1 heure selon la température de la pièce. Dorez à l’œuf entier, parsemez de sucre en grains (ou laissez-la nature) et faites cuire environ 25-30 minutes à 180°C.";
+            $recettdejeuner2->cuisson = 40;
+            $recettdejeuner2->nbpersonne = 6;
+            $recettdejeuner2->user_id = 2;
+            $recettdejeuner2->type = "dejeuner";
+            $recettdejeuner2->materiel = "Vous aurez besoin d'une poele à crèpe, un saladier et une cuilère.";
+            $recettdejeuner2->save();
+
 
 
             $favorie = new Recette_user();
@@ -451,6 +558,30 @@ class DatabaseSeeder extends Seeder
             $favorie->recette_id = 1;
             $favorie->save();
 
+           
+
+            for ($i = 1; $i < 3; $i++) {
+                $commentaire = new Commentaire;
+                $commentaire->content = 'Trop bon cette recette';
+                $commentaire->user_id = $i;
+                $commentaire->recette_id = $i;
+                $commentaire->save();
+            }
+
+            
+                $commentaire2 = new Commentaire;
+                $commentaire2->content = 'Je recommande cette recette';
+                $commentaire2->user_id = 2;
+                $commentaire2->recette_id = 1;
+                $commentaire2->save();
+
+
+                $commentaire3 = new Commentaire;
+                $commentaire3->content = 'Facile à réaliser, très bon, je recommande.';
+                $commentaire3->user_id = 3;
+                $commentaire3->recette_id = 2;
+                $commentaire3->save();
+          
            
 
 
