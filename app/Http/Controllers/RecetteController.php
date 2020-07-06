@@ -200,6 +200,55 @@ class RecetteController extends Controller
             $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'title'  =>  $recette->title = $request->title ]);
             return response()->json(['recette-update' =>  $recetteupdate]);
         }
+        if($request->ingredient1 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'ingredient1'  =>  $recette->ingredient1 = $request->ingredient1 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->ingredient2 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'ingredient2'  =>  $recette->ingredient2 = $request->ingredient2 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->ingredient3 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'ingredient3'  =>  $recette->ingredient3 = $request->ingredient3 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->ingredient4 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'ingredient4'  =>  $recette->ingredient4 = $request->ingredient4 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->ingredient5 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'ingredient5'  =>  $recette->ingredient5 = $request->ingredient5 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->ingredient6 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'ingredient6'  =>  $recette->ingredient6 = $request->ingredient6 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->preparation1 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'preparation1'  =>  $recette->preparation1 = $request->preparation1 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->preparation2 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'preparation2'  =>  $recette->preparation2 = $request->preparation2 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->preparation3 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'preparation3'  =>  $recette->preparation3 = $request->preparation3 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->preparation4 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'preparation4'  =>  $recette->preparation4 = $request->preparation4 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->preparation5 != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'preparation5'  =>  $recette->preparation5 = $request->preparation5 ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+        if($request->materiel != ''){
+            $recetteupdate = $recette->where('id', $recette->id = $request->id)->update([  'materiel'  =>  $recette->materiel = $request->materiel ]);
+            return response()->json(['recette-update' =>  $recetteupdate]);
+        }
+     
        
       
        
