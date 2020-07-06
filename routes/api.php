@@ -21,9 +21,9 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::get('/favories', 'RecetteController@favorie');
     Route::get('/recettebyuser', 'RecetteController@recipecreatebyuser');
     Route::apiResource('/recettes', 'RecetteController');
-    Route::put('/updateuser', 'AuthentificationController@updateuser');
+    Route::post('/updateuser', 'AuthentificationController@updateuser');
     Route::post('/updaterecette/{id}', 'RecetteController@update');
-    Route::delete('/delete/{id}', 'RecetteController@destroy');
+    Route::post('/delete/{id}', 'RecetteController@destroy');
     Route::post('/favorie-add/{id}', 'RecetteController@favorierecetteadd');
     Route::post('/favorie-delete/{id}', 'RecetteController@favorierecettedelete');
     Route::get('/favoriebyrecette/{id}', 'RecetteController@favoriebyrecette');
